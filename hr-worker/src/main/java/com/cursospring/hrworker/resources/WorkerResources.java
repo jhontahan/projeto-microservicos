@@ -30,13 +30,13 @@ public class WorkerResources {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity buscarPorId(@PathVariable Long id){
+	public ResponseEntity<Worker> buscarPorId(@PathVariable Long id){
 		
 		Optional<Worker> worker = repository.findById(id);
 		
-		if (!worker.isPresent()) {
-			return ResponseEntity.badRequest().body("Usuario não encontrado para o id informado.");
-		}
+//		if (!worker.isPresent()) {
+//			return ResponseEntity.badRequest().body("Usuario não encontrado para o id informado.");
+//		}
 		
 		return ResponseEntity.ok(worker.get());
 		
